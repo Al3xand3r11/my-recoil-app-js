@@ -11,7 +11,7 @@ function App() {
   const [movies, setMovies] = useRecoilState(moviesState);
   useEffect(() => {
     const getMovies = async () => {
-      const url = "https://api.themoviedb.org/3/trending/all/day?api_key=02dbfb1ad973a3edfa76104ad041a875";
+      const url = "https://api.themoviedb.org/3/trending/movie/day?api_key=02dbfb1ad973a3edfa76104ad041a875";
       const resp = await fetch(url);
       const body = await resp.json();
       setMovies(body);
@@ -23,8 +23,9 @@ function App() {
 return movies.results?.map((movie) => (
   <div key={movie.url}>
     <a href={movie.url}>
-      {movie.title}
+      {movie.title} / {movie.vote_average}
     </a>
+    <div> {movie.overview} </div>
   </div>
 )); 
 }
