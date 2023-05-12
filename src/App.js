@@ -27,7 +27,7 @@ return <>
     <a href={movie.url}>
       {movie.title} / {movie.vote_average}
     </a>
-    <div> {movie.overview} </div>
+    <div className='test'> {movie.overview} </div>
   </div>
 ))}
    </> 
